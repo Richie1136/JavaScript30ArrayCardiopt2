@@ -1,7 +1,7 @@
 const people = [
   { name: 'Wes', year: 1988 },
   { name: 'Kait', year: 1986 },
-  { name: 'Irv', year: 1970 }
+  { name: 'Irv', year: 1970 },
   { name: 'Lux', year: 2015 }
 ]
 
@@ -16,12 +16,31 @@ const comments = [
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
+
+let currentYear = new Date().getFullYear()
+
+let result = people.some((person) => currentYear - person.year >= 19)
+console.log(result)
+
 // Array.prototype.every() // is everyone 19 or older?
+
+let everyage = people.every((person) => currentYear - person.year >= 19)
+console.log(everyage)
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the id of 823423
 
+let findID = comments.find((comment) => comment.id === 823423)
+
+console.log(findID)
+
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
+
+let findIndex = comments.findIndex((element) => element.id === 823423)
+let deleteId = comments.splice(findIndex, 1)
+console.log(findIndex)
+console.log(deleteId)
+console.log(comments)
